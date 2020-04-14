@@ -4,6 +4,7 @@ namespace App\Subscriber;
 
 use ApiPlatform\Core\EventListener\EventPriorities;
 use App\Entity\User;
+use App\Service\CommonGroundService;
 use Doctrine\ORM\EntityManagerInterface;
 use App\Service\UserService;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
@@ -19,13 +20,15 @@ class UserSubscriber implements EventSubscriberInterface
     private $em;
     private $serializer;
     private $userService;
+    private $commongroundService;
 
-    public function __construct(ParameterBagInterface $params, EntityManagerInterface $em, SerializerInterface $serializer)
+    public function __construct(ParameterBagInterface $params, EntityManagerInterface $em, SerializerInterface $serializer, CommonGroundService $commonGroundService)
     {
         $this->params = $params;
         $this->em = $em;
         $this->serializer = $serializer;
-        $this->userService = new UserService($em);
+        $this->commongroundService = $commonGroundService;
+        $this->userService = new UserService($em, $commonGroundService);
     }
 
     public static function getSubscribedEvents()
