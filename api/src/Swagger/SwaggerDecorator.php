@@ -156,10 +156,10 @@ final class SwaggerDecorator implements NormalizerInterface
         }
 
         if($this->params->get('app_env') == 'prod'){
-            $docs['servers'][$this->params->get('app_domain')] = ['name'=>$this->params->get('app_domain'),['url'=>''.$this->params->get('app_name').'.'.$this->params->get('app_domain'),];
+            $docs['servers'][$this->params->get('app_domain')] = ['name'=>$this->params->get('app_domain'),['url'=>''.$this->params->get('app_name').'.'.$this->params->get('app_domain'),]];
         }
         else{
-            $docs['servers'][$this->params->get('app_domain')] = ['name'=>$this->params->get('app_domain'),['url'=>''.$this->params->get('app_name').'.'.$this->params->get('app_env').'.'.$this->params->get('app_domain'),];
+            $docs['servers'][$this->params->get('app_domain')] = ['name'=>$this->params->get('app_domain'),['url'=>''.$this->params->get('app_name').'.'.$this->params->get('app_env').'.'.$this->params->get('app_domain'),]];
         }
 
         /*
