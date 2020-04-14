@@ -3,11 +3,9 @@
 namespace App\Subscriber;
 
 use ApiPlatform\Core\EventListener\EventPriorities;
-use App\Entity\AuditTrail;
 use App\Entity\User;
-use App\Service\NLXLogService;
 use Doctrine\ORM\EntityManagerInterface;
-use Service\UserService;
+use App\Service\UserService;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpFoundation\Response;
