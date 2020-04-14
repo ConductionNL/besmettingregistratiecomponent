@@ -6,46 +6,133 @@ use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Ramsey\Uuid\UuidInterface;
 
 /**
- * @ApiResource()
+ * An entity representing an user.
+ *
+ * This entity represents an user of an infection registration application
+ *
+ * @author Robert Zondervan <robert@conduction.nl>
+ *
+ * @category entity
+ *
+ * @license EUPL <https://github.com/ConductionNL/productenendienstencatalogus/blob/master/LICENSE.md>
+ *
+ * @ApiResource(
+ *     normalizationContext={"groups"={"read"}, "enable_max_depth"=true},
+ *     denormalizationContext={"groups"={"write"}, "enable_max_depth"=true},
+ *     itemOperations={
+ *          "get",
+ *          "put",
+ *          "delete",
+ *          "get_change_logs"={
+ *              "path"="/users/{id}/change_log",
+ *              "method"="get",
+ *              "swagger_context" = {
+ *                  "summary"="Changelogs",
+ *                  "description"="Gets al the change logs for this resource"
+ *              }
+ *          },
+ *          "get_audit_trail"={
+ *              "path"="/users/{id}/audit_trail",
+ *              "method"="get",
+ *              "swagger_context" = {
+ *                  "summary"="Audittrail",
+ *                  "description"="Gets the audit trail for this resource"
+ *              }
+ *          }
+ *     }
+ * )
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
+ * @Gedmo\Loggable(logEntryClass="App\Entity\ChangeLog")
+ * @ORM\HasLifecycleCallbacks
+ *
+ * @ApiFilter(BooleanFilter::class)
+ * @ApiFilter(OrderFilter::class)
+ * @ApiFilter(DateFilter::class, strategy=DateFilter::EXCLUDE_NULL)
+ * @ApiFilter(SearchFilter::class)
+
  */
 class User
 {
     /**
-     * @ORM\Id()
-     * @ORM\GeneratedValue()
-     * @ORM\Column(type="integer")
+     * @var UuidInterface The UUID identifier of this object
+     *
+     * @example e2984465-190a-4562-829e-a8cca81aa35d
+     *
+     *
+     * @Groups({"read"})
+     * @Assert\Uuid
+     * @ORM\Id
+     * @ORM\Column(type="uuid", unique=true)
+     * @ORM\GeneratedValue(strategy="CUSTOM")
+     * @ORM\CustomIdGenerator(class="Ramsey\Uuid\Doctrine\UuidGenerator")
      */
     private $id;
 
     /**
+     * @var boolean Boolean to indicate if the user themselves indicated if they are infected
+     *
+     * @Gedmo\Versioned
+     * @example false
+     * @Groups({"read","write"})
+     * @Assert\Length(
+     *     max=255
+     * )
      * @ORM\Column(type="boolean")
      */
-    private $infected;
+    private $infected = false;
 
     /**
+     * @var boolean Boolean to indicate if the health services confirmed the infection
+     *
+     * @Gedmo\Versioned
+     * @example false
+     * @Groups({"read","write"})
+     * @Assert\Length(
+     *     max=255
+     * )
      * @ORM\Column(type="boolean")
      */
-    private $confirmed;
+    private $confirmed = false;
 
     /**
+     * @var string A contact the user can be contacted with. Can only be filled if infected is true and confirmed is false
+     *
+     * @example https://example.org/people/1
+     *
+     * @ORM\Column(type="string", length=255)
+     *
+     * @Gedmo\Versioned
+     * @Groups({"read","write"})
+     * @Assert\Url
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $contact;
 
     /**
+     * @var DateTime The moment this request was created by the submitter
+     *
+     * @Groups({"read"})
+     * @Gedmo\Timestampable(on="create")
      * @ORM\Column(type="datetime", nullable=true)
      */
     private $dateCreated;
 
     /**
+     * @var DateTime The moment this request was modified by the submitter
+     *
+     * @Groups({"read"})
+     * @Gedmo\Timestampable(on="update")
      * @ORM\Column(type="datetime", nullable=true)
      */
     private $dateModified;
 
     /**
+     * @var ArrayCollection The users the user has contacted and the date on which the contact happened
+     * @MaxDepth(1)
+     * @Groups({"read", "write"})
      * @ORM\ManyToMany(targetEntity="App\Entity\Contact", mappedBy="users")
      */
     private $contacts;
@@ -55,7 +142,7 @@ class User
         $this->contacts = new ArrayCollection();
     }
 
-    public function getId(): ?int
+    public function getId(): ?Uuid
     {
         return $this->id;
     }
