@@ -1,15 +1,15 @@
 openapi: 3.0.2
 info:
-  title: Besmenttingregistratiecomponent
+  title: Besmettingregistratiecomponent
   version: V.0.1
   description: |
     API Details
-    - Component: Besmenttingregistratiecomponent
+    - Component: Besmettingregistratiecomponent
     - Reference: brc
     - Enviroment: dev
     - Version: V.0.1
-    - Repository: [online](https://github.com/ConductionNL/proto-component) / [zip](https://github.com/ConductionNL/proto-component/archive/master.zip)
-    - Docker Image: [online](https://hub.docker.com/repository/docker/conduction/pc-php) 
+    - Repository: [online](https://github.com/ConductionNL/besmettingregistratiecomponent) / [zip](https://github.com/ConductionNL/besmettingregistratiecomponent/archive/master.zip)
+    - Docker Image: [online](https://hub.docker.com/repository/docker/conduction/brc-php) 
     - Datamodel: [postman](/schema/brc.postman_collection.json) / [oas](/schema/openapi.yaml) / [pdf](/schema/datamodel.pdf) / [mwb](/schema/datamodel.mwb) 
     
     'Naast deze JSON rest API is er ook een [graphql](/graphql) interface beschikbaar.'         
@@ -4623,12 +4623,12 @@ definitions:
         description: 'The moment this request was created'
         type: string
         format: date-time
-        example: '2020-04-14 09:33:20'
+        example: '2020-04-14 09:52:07'
       dateModified:
         description: 'The moment this request last Modified'
         type: string
         format: date-time
-        example: '2020-04-14 09:33:20'
+        example: '2020-04-14 09:52:07'
     required: []
   AuditTrail-write:
     properties:
@@ -4676,12 +4676,12 @@ definitions:
         description: 'The moment this request was created'
         type: string
         format: date-time
-        example: '2020-04-14 09:33:20'
+        example: '2020-04-14 09:52:07'
       dateModified:
         description: 'The moment this request last Modified'
         type: string
         format: date-time
-        example: '2020-04-14 09:33:20'
+        example: '2020-04-14 09:52:07'
     required: []
   ChangeLog-write:
     properties:
