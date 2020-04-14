@@ -43,7 +43,7 @@ class UserSubscriber implements EventSubscriberInterface
         $result = $event->getControllerResult();
 
         // Only do somthing if we are on te log route and the entity is logable
-        if ($method != 'PUT' && $method != 'POST' && $method != 'PATCH' && !($result instanceof User)) {
+        if ($method != 'PUT' && $method != 'POST' && $method != 'PATCH' || !($result instanceof User)) {
             return;
         }
 
