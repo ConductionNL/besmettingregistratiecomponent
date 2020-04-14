@@ -155,19 +155,19 @@ final class SwaggerDecorator implements NormalizerInterface
             $docs['servers'] = [];
         }
 
-        if($this->params->get('app_env') == 'prod'){
-            $docs['servers'][$this->params->get('app_domain')] = ['name'=>$this->params->get('app_domain'),['url'=>''.$this->params->get('app_name').'.'.$this->params->get('app_domain'),]];
-        }
-        else{
-            $docs['servers'][$this->params->get('app_domain')] = ['name'=>$this->params->get('app_domain'),['url'=>''.$this->params->get('app_name').'.'.$this->params->get('app_env').'.'.$this->params->get('app_domain'),]];
-        }
+//        if($this->params->get('app_env') == 'prod'){
+//            $docs['servers'][$this->params->get('app_domain')] = ['name'=>$this->params->get('app_domain'),['url'=>''.$this->params->get('app_name').'.'.$this->params->get('app_domain'),]];
+//        }
+//        else{
+//            $docs['servers'][$this->params->get('app_domain')] = ['name'=>$this->params->get('app_domain'),['url'=>''.$this->params->get('app_name').'.'.$this->params->get('app_env').'.'.$this->params->get('app_domain'),]];
+//        }
 
         /*
         app_domain
+        */
         foreach ($this->params->get('common_ground.oas.servers') as $key => $value) {
             $docs['servers'][$key] = $value;
         }
-        /*
 
 
 
