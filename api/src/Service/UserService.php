@@ -6,29 +6,15 @@ namespace Service;
 
 use App\Entity\Contact;
 use App\Entity\User;
+use DateTimeInterface;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 
 class UserService
 {
-
+    private $em;
     public function __construct(EntityManagerInterface $em){
         $this->em = $em;
-    }
-    public function createContacts(ArrayCollection $users, User $user, \DateTimeInterface $dateCreated){
-        $result = new ArrayCollection();
-        foreach($users as $secondUser){
-            $contact = new Contact();
-            $contact->setDateCreated($dateCreated);
-            $contact->addUser($user);
-            $contact->addUser($secondUser);
-
-            $this->em->persist($contact);
-            $result->add($contact);
-        }
-        $this->em->flush();
-
-        return $result;
     }
     public function validateUser(User $user) : User
     {
@@ -40,5 +26,7 @@ class UserService
         }
         $this->em->persist($user);
         $this->em->flush();
+
+        return $user;
     }
 }

@@ -22,12 +22,12 @@ class UserSubscriber implements EventSubscriberInterface
     private $serializer;
     private $userService;
 
-    public function __construct(ParameterBagInterface $params, EntityManagerInterface $em, SerializerInterface $serializer, UserService $userService)
+    public function __construct(ParameterBagInterface $params, EntityManagerInterface $em, SerializerInterface $serializer)
     {
         $this->params = $params;
         $this->em = $em;
         $this->serializer = $serializer;
-        $this->userService = $userService;
+        $this->userService = new UserService($em);
     }
 
     public static function getSubscribedEvents()
@@ -37,7 +37,7 @@ class UserSubscriber implements EventSubscriberInterface
         ];
     }
 
-    public function Audittrail(ViewEvent $event)
+    public function User(ViewEvent $event)
     {
         $method = $event->getRequest()->getMethod();
         $result = $event->getControllerResult();
