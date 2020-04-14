@@ -1,6 +1,6 @@
 # Readme
 -------
-Welcome to the the VNG Common Ground proto component!
+Welcome to the the Conduction Besmetting Registratie Component!
 
 This "proto" component provides a plug and play solution for component generation on Common Ground. That means that it takes away all the hassle of setting op codebases, containers and following the VNG Api Standaard. It does all that for you! 
 
