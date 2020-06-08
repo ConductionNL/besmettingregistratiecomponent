@@ -4,7 +4,7 @@
 
 settings:
   registryBase: docker.io/conduction
-  projectName: pc
+  projectName: brc
   name: brc
   title: Besmettingregistratiecomponent
   version: V.0.1
