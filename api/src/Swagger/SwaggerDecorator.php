@@ -169,8 +169,6 @@ final class SwaggerDecorator implements NormalizerInterface
             $docs['servers'][$key] = $value;
         }
 
-
-
         // Lets set the external documentation
         if (array_key_exists('externalDocs', $docs)) {
             $docs['externalDocs'] = [];
