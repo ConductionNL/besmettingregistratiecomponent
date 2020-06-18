@@ -469,26 +469,39 @@
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/ConductionNL/ConductionCommonGroundBundle.git",
-                "reference": "5483c40c75a9354048e749e0133178e2bd278d23"
+                "url": "https://github.com/ConductionNL/CommonGroundBundle.git",
+                "reference": "fe738ab07af496ae3f10645cff338b44d764c172"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ConductionNL/ConductionCommonGroundBundle/zipball/5483c40c75a9354048e749e0133178e2bd278d23",
-                "reference": "5483c40c75a9354048e749e0133178e2bd278d23",
+                "url": "https://api.github.com/repos/ConductionNL/CommonGroundBundle/zipball/fe738ab07af496ae3f10645cff338b44d764c172",
+                "reference": "fe738ab07af496ae3f10645cff338b44d764c172",
                 "shasum": ""
             },
             "require": {
                 "api-platform/api-pack": "^1.2@stable",
                 "api-platform/core": "^2.4@stable",
                 "api-platform/schema-generator": "^2.1@stable",
+                "doctrine/doctrine-bundle": "^1.6 || ^2.0",
+                "doctrine/doctrine-fixtures-bundle": "^3.2",
+                "doctrine/rst-parser": "^0.1.0",
+                "guzzlehttp/guzzle": "^6.3",
+                "knplabs/knp-markdown-bundle": "^1.8",
+                "mollie/mollie-api-php": "^2.0",
                 "php": "^7.1.3",
+                "ramsey/uuid": "^3.8",
+                "ramsey/uuid-doctrine": "^1.5",
+                "stof/doctrine-extensions-bundle": "^1.3",
+                "sumup/sumup-ecom-php-sdk": "^1.0",
                 "symfony/cache": "^4.3@stable",
                 "symfony/cache-contracts": "^1.1@stable",
                 "symfony/console": "^4.3@stable",
                 "symfony/contracts": "^1.0",
+                "symfony/event-dispatcher": "^4.2",
                 "symfony/maker-bundle": "^1.11@stable",
-                "symfony/var-exporter": "^4.2"
+                "symfony/translation": "4.4.*",
+                "symfony/var-exporter": "^4.2",
+                "twig/extensions": "^1.5"
             },
             "conflict": {
                 "doctrine/dbal": "<2.5",
@@ -540,7 +553,7 @@
                 "postcode",
                 "rsin"
             ],
-            "time": "2019-07-23T07:51:14+00:00"
+            "time": "2020-06-17T13:11:46+00:00"
         },
         {
             "name": "doctrine/annotations",
@@ -1728,12 +1741,12 @@
             "version": "0.9.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/njh/easyrdf.git",
+                "url": "https://github.com/easyrdf/easyrdf.git",
                 "reference": "acd09dfe0555fbcfa254291e433c45fdd4652566"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/njh/easyrdf/zipball/acd09dfe0555fbcfa254291e433c45fdd4652566",
+                "url": "https://api.github.com/repos/easyrdf/easyrdf/zipball/acd09dfe0555fbcfa254291e433c45fdd4652566",
                 "reference": "acd09dfe0555fbcfa254291e433c45fdd4652566",
                 "shasum": ""
             },
@@ -7642,6 +7655,61 @@
             "time": "2018-08-29T12:48:51+00:00"
         },
         {
+            "name": "twig/extensions",
+            "version": "v1.5.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/twigphp/Twig-extensions.git",
+                "reference": "57873c8b0c1be51caa47df2cdb824490beb16202"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/twigphp/Twig-extensions/zipball/57873c8b0c1be51caa47df2cdb824490beb16202",
+                "reference": "57873c8b0c1be51caa47df2cdb824490beb16202",
+                "shasum": ""
+            },
+            "require": {
+                "twig/twig": "^1.27|^2.0"
+            },
+            "require-dev": {
+                "symfony/phpunit-bridge": "^3.4",
+                "symfony/translation": "^2.7|^3.4"
+            },
+            "suggest": {
+                "symfony/translation": "Allow the time_diff output to be translated"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.5-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Twig_Extensions_": "lib/"
+                },
+                "psr-4": {
+                    "Twig\\Extensions\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                }
+            ],
+            "description": "Common additional features for Twig that do not directly belong in core",
+            "keywords": [
+                "i18n",
+                "text"
+            ],
+            "time": "2018-12-05T18:34:18+00:00"
+        },
+        {
             "name": "twig/twig",
             "version": "v2.12.2",
             "source": {
@@ -7969,5 +8037,6 @@
         "ext-ctype": "*",
         "ext-iconv": "*"
     },
-    "platform-dev": []
+    "platform-dev": [],
+    "plugin-api-version": "1.1.0"
 }

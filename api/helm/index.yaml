@@ -3,14 +3,14 @@ entries:
   brc:
   - apiVersion: v1
     appVersion: V.0.1
-    created: "2020-06-08T11:25:41.979285255Z"
+    created: "2020-06-18T11:57:13.443019607Z"
     description: '&#039;Naast deze JSON rest API is er ook een [graphql](/graphql)
       interface beschikbaar.&#039;'
-    digest: 8f6f094163609c7dbbcf03bc0a94ae4ada9cd43440b1b1185dfec30162593705
+    digest: 03cb3fa1fbb6946308c927312bd82d79a8c64388fdfdddf44e0b12ec20692b6b
     home: brc.zaakonline.nl
     icon: brc.zaakonline.nl
     name: brc
     urls:
     - brc-0.1.0.tgz
     version: 0.1.0
-generated: "2020-06-08T11:25:41.970808056Z"
+generated: "2020-06-18T11:57:13.440387707Z"
