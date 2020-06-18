@@ -1,46 +1,18 @@
 parameters:
-    # Adds a fallback API KEYS if the env var is not set.
-    # This allows you to run cache:warmup even if your
-    # environment variables are not available yet.
-    # You should not need to change this value.
-    env(CONDUCTION_COMMONGROUND_BAG_APIKEY): 'Change me in your .env file'
-    env(NLX_OUTWAY): true
-    env(NLX_INWAY): false
-        
-    env(APP_COMMONGROUND_id): '' 
-    env(APP_COMMONGROUND_KEY): '' 
-    env(APP_APPLICATION_KEY): '' 
-    env(APP_USER_KEY): ''  
-    env(APP_ENV): '' 
-    env(APP_CACHE): false          
-    env(APP_VERSION): '' 
-    env(APP_NAME): '' 
-    env(APP_DOMAIN): ''  
-    env(AUTH_PROVIDER_USER): '' 
-    env(AUTH_PROVIDER_APPLICATION): '' 
-    
-    app_commonground_id: '%env(APP_COMMONGROUND_ID)%'  
-    app_commonground_key: '%env(APP_COMMONGROUND_KEY)%'   
-    app_application_key: '%env(APP_APPLICATION_KEY)%'   
-    app_user_key: '%env(APP_USER_KEY)%'               
-    app_env: '%env(APP_ENV)%'                
-    app_cache: '%env(APP_CACHE)%'                             
-    app_version: '%env(APP_VERSION)%'         
-    app_name: '%env(APP_NAME)%'
-    app_subdomain: '%env(APP_SUBDOMAIN)%'
-    app_domain: '%env(APP_DOMAIN)%'   
-    app_type: '%env(APP_TYPE)%'
-    auth_provider_user: '%env(AUTH_PROVIDER_USER)%'   
-    auth_provider_application: '%env(AUTH_PROVIDER_APPLICATION)%'    
-    
-    common_ground.bag.location: 'https://bag.basisregistraties.overheid.nl/api/v1/'
-    common_ground.bag.apikey: 'e8a95365-3078-4b41-990a-e3de43cecd36'
+  # Adds a fallback API KEYS if the env var is not set.
+  # This allows you to run cache:warmup even if your
+  # environment variables are not available yet. 
+  # You should not need to change this value.
 
-    common_ground.ac.location: 'https://ac.huwelijksplanner.online'
-    common_ground.ac.apikey: '%env(APP_COMMONGROUND_KEY)%'
+  # Security Details
+  env(APP_COMMONGROUND_ID): ""
+  env(APP_COMMONGROUND_KEY): ""
+  env(APP_COMMONGROUND_SECRET): ""
 
-    common_ground.as.location: 'https://as.zaakonline.nl'
-    common_ground.as.apikey: '%env(APP_COMMONGROUND_KEY)%'
+  common_ground.app.id: "%env(APP_COMMONGROUND_ID)%"
+  app_commonground_id: "%env(APP_COMMONGROUND_ID)%"
+  app_commonground_key: "%env(APP_COMMONGROUND_KEY)%"
+  app_commonground_secret: "%env(APP_COMMONGROUND_SECRET)%"
 
   # Application Parameters
   env(APP_ENV): "prod"
@@ -62,8 +34,8 @@ parameters:
   env(APP_DEMO): "pc.zaakonline.nl" 
   env(APP_BUILD_ALL_FIXTURES): false
 
-    common_ground.brp.location: 'https://brp.huwelijksplanner.online'
-    common_ground.brp.apikey: '%env(APP_COMMONGROUND_KEY)%'
+  env(APP_CONTAINER): ""
+  env(APP_REPRO): ""
 
   app_env: "%env(APP_ENV)%"
   app_debug: "%env(APP_DEBUG)%"
@@ -88,83 +60,53 @@ parameters:
   app_web: "%env(APP_WEB)%"
   app_build_al_fixtures: "%env(APP_BUILD_ALL_FIXTURES)%"
 
-    common_ground.cc.location: 'https://cc.huwelijksplanner.online'
-    common_ground.cc.apikey: '%env(APP_COMMONGROUND_KEY)%'
+  # Organisatie details
+  env(GOOGLE_TAG_MANAGER_ID): ""
+  env(HUBSPOT_EMBED_CODE): ""
 
-    common_ground.irc.location: 'https://irc.huwelijksplanner.online'
-    common_ground.irc.apikey: '%env(APP_COMMONGROUND_KEY)%'
+  env(CONTAINER_REGISTRY_BASE): ""
+  env(CONTAINER_PROJECT_NAME): ""
 
-    common_ground.lc.location: 'https://lc.huwelijksplanner.online'
-    common_ground.lc.apikey: '%env(APP_COMMONGROUND_KEY)%'
+  env(ORGANIZATION_NAME): ""
+  env(ORGANIZATION_EMAIL_ADDRESS): ""
+  env(ORGANIZATION_COUNTRY_NAME): ""
+  env(ORGANIZATION_STATE): ""
+  env(ORGANIZATION_LOCALITY): ""
+  env(ORGANIZATION_UNIT_NAME): ""
 
-    common_ground.ltc.location: 'https://ltc.huwelijksplanner.online'
-    common_ground.ltc.apikey: '%env(APP_COMMONGROUND_KEY)%'
+  google_tag_manager_id: "%env(GOOGLE_TAG_MANAGER_ID)%"
+  hubspot_embed_code: "%env(HUBSPOT_EMBED_CODE)%"
 
-    common_ground.mrc.location: 'https://mrc.huwelijksplanner.online'
-    common_ground.mrc.apikey: '%env(APP_COMMONGROUND_KEY)%'
+  container_registry_base: "%env(CONTAINER_REGISTRY_BASE)%"
+  container_project_name: "%env(CONTAINER_PROJECT_NAME)%"
 
-    common_ground.orc.location: 'https://orc.huwelijksplanner.online'
-    common_ground.orc.apikey: '%env(APP_COMMONGROUND_KEY)%'
+  organization_name: "%env(ORGANIZATION_NAME)%"
+  organization_email: "%env(ORGANIZATION_EMAIL_ADDRESS)%"
+  organization_country: "%env(ORGANIZATION_COUNTRY_NAME)%"
+  organization_state: "%env(ORGANIZATION_STATE)%"
+  organization_locality: "%env(ORGANIZATION_LOCALITY)%"
+  organization_unit: "%env(ORGANIZATION_UNIT_NAME)%"
 
-    common_ground.pdc.location: 'https://pdc.huwelijksplanner.online'
-    common_ground.pdc.apikey: '%env(APP_COMMONGROUND_KEY)%'
+  # Dit is hieronder nu anders geregeld (ofwel aanpassen)
+  env(APP_APPLICATION_KEY): ""
+  env(APP_USER_KEY): ""
+  env(AUTH_PROVIDER_USER): ""
+  env(AUTH_PROVIDER_APPLICATION): ""
 
-    common_ground.ptc.location: 'https://ptc.huwelijksplanner.online'
-    common_ground.ptc.apikey: '%env(APP_COMMONGROUND_KEY)%'
+  env(TRUSTED_HOSTS): ""
+  env(TRUSTED_PROXIES): ""
 
-    common_ground.vrc.location: 'https://vrc.huwelijksplanner.online'
-    common_ground.vrc.apikey: '%env(APP_COMMONGROUND_KEY)%'
+  env(NLX_OUTWAY): ""
+  env(NLX_INWAY): ""
 
-    common_ground.vtc.location: 'https://vtc.huwelijksplanner.online'
-    common_ground.vtc.apikey: '%env(APP_COMMONGROUND_KEY)%'
+  # Dit is hieronder nu anders geregeld (ofwel aanpassen)
+  auth_provider_user: "%env(AUTH_PROVIDER_USER)%"
+  auth_provider_application: "%env(AUTH_PROVIDER_APPLICATION)%"
+  app_application_key: "%env(APP_APPLICATION_KEY)%"
+  app_user_key: "%env(APP_USER_KEY)%"
 
-    common_ground.wrc.location: 'https://wrc.huwelijksplanner.online'
-    common_ground.wrc.apikey: '%env(APP_COMMONGROUND_KEY)%'
-    
-    common_ground.oas.type: service
-    common_ground.oas.host: irc.zaakonline.nl
-    common_ground.oas.servers:
-            -
-              description: Demo Omgeving
-              url: 'http://proto.demo.common-ground.dev'       
-    common_ground.oas.externalDocs:
-            -
-              description: OAS Documentatie
-              url: 'http://proto.demo.common-ground.dev'  
-    common_ground.oas.developers:
-            -
-              name: Conduction
-              url: https://github.com/ConductionNL
-              email: info@conduction.nl
-            -
-              name: Gemeente 's-Hertogenbosch
-              url: https://github.com/gemeenteshertogenbosch
-              email: info@s-hertogenbosch.nl/
-            -
-              name: Gemeente Utrecht
-              url: https://github.com/GemeenteUtrecht
-              email: info@utrecht.nl
-    common_ground.oas.builds:
-            -
-              name: travis
-              logo: https://travis-ci.org/api-platform/core.svg?branch=master
-              url: https://travis-ci.org/api-platform/core
-            -
-              name: appveyor
-              logo: https://ci.appveyor.com/api/projects/status/grwuyprts3wdqx5l?svg=true
-              url: https://ci.appveyor.com/project/dunglas/dunglasapibundle
-            -
-              name: codecov
-              logo: https://codecov.io/gh/api-platform/core/branch/master/graph/badge.svg
-              url: https://codecov.io/gh/api-platform/core
-            -
-              name: SensioLabsInsight
-              logo: https://insight.sensiolabs.com/projects/92d78899-946c-4282-89a3-ac92344f9a93/mini.png
-              url: https://insight.sensiolabs.com/projects/92d78899-946c-4282-89a3-ac92344f9a93
-            -
-              name: Scrutinizer Code Quality
-              logo: https://scrutinizer-ci.com/g/api-platform/core/badges/quality-score.png?b=master
-              url: https://scrutinizer-ci.com/g/api-platform/core/?branch=master 
+  trusted_hosts: "%env(TRUSTED_HOSTS)%"
+  trusted_proxies: "%env(TRUSTED_PROXIES)%"
 
   nlx_outway: "%env(NLX_OUTWAY)%"
   nlx_inway: "%env(NLX_INWAY)%"
